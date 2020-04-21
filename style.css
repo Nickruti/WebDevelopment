@@ -1,0 +1,47 @@
+h1{
+	color: blue;
+	text-align: center;
+}
+h6{
+	color: green;
+	text-align: center;
+}
+table{
+	border: 2px solid black;
+	border-collapse: collapse;
+	width: 50%;
+}
+th, td{
+	border: 1px solid black;
+}
+
+th{
+	background-color: lightgray;
+}
+
+p{
+	color: darkmagenta;
+}
+
+div{
+	font-family: Arial, sans-serif;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+#top{
+	font-size: 36px;;
+}
+
+#middle{
+	font-size: 24px;
+}
+
+#bottom{
+	font-size: 12px;
+}
+
+.name{
+	font-weight: bold;
+	color: pink;
+}
