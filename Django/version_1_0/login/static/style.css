@@ -1,0 +1,66 @@
+
+        body, html {
+            height: 100%;
+            margin: 0;
+          }
+  
+          .bg {
+            /* The image used */
+            background-image: url("image/586.jpg");
+  
+            /* Full height */
+            height: 100%; 
+  
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+          }
+  
+        * {
+         box-sizing: border-box;
+        }
+  
+        .container {
+            position: absolute;
+            max-width: 300px;
+            padding: 16px;
+            background-color: white;
+            align-content: center;
+            left: 50%;
+            top: 50%;
+            -webkit-transform: translate3d(-50%, -50%, 0);
+            -moz-transform: translate3d(-50%, -50%, 0);
+            transform: translate3d(-50%, -50%, 0);
+          }
+  
+          .btn {
+            color: white;
+            padding: 16px 20px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            opacity: 0.9;
+            border-radius: 5px;
+            text-align: center;
+            font-size: medium;
+            background-color: skyblue;
+          }
+  
+          .btn:hover {
+            background-color: DodgerBlue;
+          }
+  
+          /* Full-width input fields */
+          input[type=text], input[type=password] {
+            width: 100%;
+            padding: 15px;
+            margin: 5px 0 22px 0;
+            border: none;
+            background: #f1f1f1;
+          }
+  
+          input[type=text]:focus, input[type=password]:focus {
+            background-color: #ddd;
+            outline: none;
+          }
