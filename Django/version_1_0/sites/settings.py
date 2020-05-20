@@ -40,11 +40,6 @@ INSTALLED_APPS = [
     'login'
 ]
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
-    'login/static',
-]
-
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -60,7 +55,7 @@ ROOT_URLCONF = 'sites.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ["sites/templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -81,8 +76,12 @@ WSGI_APPLICATION = 'sites.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'Kruti@123',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
@@ -124,3 +123,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    "login/static/css"
+]
+
+LOGIN_REDIRECT_URL = '/'

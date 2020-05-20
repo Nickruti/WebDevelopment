@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+    
+{% block title %} Login {% endblock %}
+{% block head %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+  <style>
+    .bg {
+            background-image: url('static/image/586.jpg');
+  
+            /* Full height */
+            height: 100%; 
+  
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+          }
+  </style>
+{% endblock %}
+
+    
+{% block content %}
+    <div class="bg">
+      <form method="POST" class="container" action="" id="login-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+    
+        <button type="submit" class="btn" value="Post">Login</button>
+      </form>
+    </div>
+{% endblock %}
+
