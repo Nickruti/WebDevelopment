@@ -14,6 +14,7 @@ def add_sites(request):
                 start_date = form.cleaned_data["date"]
             ) 
             site.save()
+            form = AddSitesForm()
 
             return render(request, "addsite.html", {'form':form})
         else:
