@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'login'
+    'login',
+    'add_sites'
 ]
 
 MIDDLEWARE = [
@@ -127,4 +128,3 @@ STATICFILES_DIRS = [
     "login/static/css"
 ]
 
-LOGIN_REDIRECT_URL = '/'
