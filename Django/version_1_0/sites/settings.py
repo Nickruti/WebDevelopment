@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'login',
-    'add_sites'
+    'add_sites',
+    'daily_update'
 ]
 
 MIDDLEWARE = [

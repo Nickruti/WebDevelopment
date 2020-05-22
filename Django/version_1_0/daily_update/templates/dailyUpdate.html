@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+    
+{% block title %} Daily Update {% endblock %}
+{% block head %}
+  <style>
+    .bg {
+            background-image: url('login/static/image/586.jpg');
+  
+            /* Full height */
+            height: 100%; 
+  
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+          }
+  </style>
+{% endblock %}
+
+    
+{% block content %}
+    <div class="bg">
+        <h1>Daily Update</h1>
+      <form method="POST" class="container" action="" id="addsite-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+    
+        <button type="submit" class="btn" value="Post">Save</button>
+      </form>
+    </div>
+{% endblock %}
+

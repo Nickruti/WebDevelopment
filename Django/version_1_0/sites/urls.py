@@ -20,4 +20,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('login/', include('login.urls')),
     path('addsite/', include('add_sites.urls')),
+    path('dailyUpdate/', include('daily_update.urls')),
 ]

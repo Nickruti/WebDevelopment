@@ -10,8 +10,8 @@ def login_(request):
             username = form.cleaned_data.get("username")
             password = form.cleaned_data.get("password")
             try:
-                user = Login.objects.get(username=username)
-                pwd = Login.objects.get(password=password)
+                Login.objects.get(username=username)
+                Login.objects.get(password=password)
                 
             except Login.DoesNotExist:
                 return render(request, "login.html", {"form":form})
