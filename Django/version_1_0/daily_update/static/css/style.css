@@ -3,10 +3,16 @@
   --input-padding-y: .75rem;
 }
 
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
 .card-signin {
   border: 0;
   border-radius: 1rem;
-  box-shadow: 0 0.5rem 1rem 0 rgba(230, 206, 206, 0.1);
+  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
 }
 
 .card-signin .card-title {
@@ -22,11 +28,11 @@
   height:auto;
 }
 
-.form-signin {
+.form-addsite {
   width: 100%;
 }
 
-.form-signin .btn {
+.form-addsite .btn {
   font-size: 80%;
   border-radius: 5rem;
   letter-spacing: .1rem;
@@ -46,4 +52,14 @@
     display: block;
     margin-bottom: 20px;
   }
+  .sidenav {
+    height: auto;
+    padding: 15px;
+  }
+}
+
+.sidenav {
+  padding-top: 20px;
+  background-color: #f1f1f1;
+  height: 100%;
 }

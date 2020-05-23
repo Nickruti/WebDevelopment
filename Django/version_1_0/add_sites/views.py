@@ -1,10 +1,12 @@
 from django.shortcuts import render
 from .models import AddSites
 from .forms import AddSitesForm
+from django.contrib import messages
 # Create your views here.
 
 def add_sites(request):
     form = AddSitesForm(request.POST)
+    messages.error(request,'Login Successful!')
     if request.method == 'POST':
         if form.is_valid():
             site = AddSites.objects.create(

@@ -13,7 +13,7 @@ def dailyUpdate(request):
                 male_coolie = form.cleaned_data["male_coolie"],
                 female_coolie = form.cleaned_data["female_coolie"],
                 mason = form.cleaned_data["mason"],
-                centric_fitter = form.cleaned_data["centric_fitter"],
+                centric_fitter = form.cleaned_data["centrinc_fitter"],
                 materials_purchased = form.cleaned_data["materials_purchased"],
                 material_details = form.cleaned_data["material_details"]
             ) 
@@ -22,7 +22,6 @@ def dailyUpdate(request):
 
             return render(request, "dailyUpdate.html", {'form':form})
         else:
-            print("Hello")
             form = DailyUpdateForm()
 
     return render(request, 'dailyUpdate.html', {'form':form})

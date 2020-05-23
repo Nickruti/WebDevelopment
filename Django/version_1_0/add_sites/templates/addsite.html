@@ -1,32 +1,63 @@
 {% extends "base.html" %}
-{% load static %}
+{% load static %}             
     
 {% block title %} Add Site {% endblock %}
 {% block head %}
-  <style>
-    .bg {
-            background-image: url('login/static/image/586.jpg');
-  
-            /* Full height */
-            height: 100%; 
-  
-            /* Center and scale the image nicely */
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-          }
-  </style>
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+<style>
+  body {
+          background-image: url('{% static "image/119.jpg"%}');
+          height: auto; 
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
+</style>
 {% endblock %}
 
     
 {% block content %}
-    <div class="bg">
-      <form method="POST" class="container" action="" id="addsite-form">
-        {% csrf_token %}
-        {{ form.as_p }}
-    
-        <button type="button" class="btn btn-success">Save</button>
-      </form>
+<body>
+  <div class="container">
+    {% for message in messages %}
+      <div class="alert alert-success">
+      <a class="close" href="#" data-dismiss="alert">x</a>
+        {{ message }}
+      </div>
+    {% endfor %}
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin my-5">
+          <div class="card-body">
+            <h5 class="card-title text-center">Add Site</h5>
+            <form class="form-addsite" method="POST" id="addsite-form">
+            {% csrf_token %}
+            <div class="form-label-group">
+            {{ form.name }}
+            </div>
+
+            <div class="form-label-group">
+              {{ form.location }}
+            </div>
+
+            <div class="form-label-group">
+              {{ form.description }}
+            </div>
+
+            <div class="form-label-group">
+              <label></label>
+              {% load bootstrap4 %}
+              {% bootstrap_css %}  
+              {% bootstrap_javascript jquery='full' %}
+              {{ form.date }}{{ form.media }} 
+            </div>
+            <button class="btn btn-lg btn-success btn-block text-uppercase" type="submit">Save</button>
+          </form>
+        </div>
+      </div>
     </div>
+  </div>
+</div>
+</body>
 {% endblock %}
 

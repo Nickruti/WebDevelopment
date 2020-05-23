@@ -3,31 +3,72 @@
     
 {% block title %} Daily Update {% endblock %}
 {% block head %}
-  <style>
-    .bg {
-            background-image: url('login/static/image/586.jpg');
-  
-            /* Full height */
-            height: 100%; 
-  
-            /* Center and scale the image nicely */
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-          }
-  </style>
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+<style>
+  body {
+          background-image: url('{% static "image/119.jpg"%}');
+          height: auto; 
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
+</style>
 {% endblock %}
 
     
 {% block content %}
-    <div class="bg">
-        <h1>Daily Update</h1>
-      <form method="POST" class="container" action="" id="addsite-form">
-        {% csrf_token %}
-        {{ form.as_p }}
-    
-        <button type="button" class="btn btn-success">Save</button>
-      </form>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin my-5">
+          <div class="card-body">
+            <h5 class="card-title text-center">Daily Update</h5>
+            <form class="form-addsite" method="POST" id="dailyUpdate-form">
+            {% csrf_token %}
+            <div class="form-label-group">
+              {% load bootstrap4 %}
+              {% bootstrap_css %}  
+              {% bootstrap_javascript jquery='full' %}
+              {{ form.date }}{{ form.media }} 
+            </div>
+
+            <div class="form-label-group">
+              {{ form.total_workers }}
+            </div>
+
+            <div class="form-label-group">
+              {{ form.male_coolie }}
+            </div>
+
+            <div class="form-label-group">
+              {{ form.female_coolie }}
+            </div>
+
+            <div class="form-label-group">
+              {{ form.mason }}
+            </div>
+
+            <div class="form-label-group">
+              {{ form.centrinc_fitter }}
+            </div>
+
+            <div class="form-label-group">
+              <div class="btn-group">
+              {{ form.materials_purchased }}
+              </div>
+            </div>
+
+            <div class="form-label-group">
+              {{ form.material_details }}
+            </div>
+            <button class="btn btn-lg btn-success btn-block text-uppercase" type="submit">Save</button>
+          </form>
+        </div>
+      </div>
     </div>
+  </div>
+</div>
+</body>
 {% endblock %}
 
