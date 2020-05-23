@@ -5,8 +5,8 @@ from django.shortcuts import render
 from .models import Login
 
 class LoginForm(forms.Form):
-   username = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control', 'placeholder':'Enter Username'}))
-   password = forms.CharField(widget=forms.PasswordInput(attrs={'class':'form-control', 'placeholder':'Enter Password'}))
+   username = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control', 'placeholder':'Username'}))
+   password = forms.CharField(widget=forms.PasswordInput(attrs={'class':'form-control', 'placeholder':'Password'}))
    
    def clean_message(self):
       username = self.cleaned_data.get("username")
