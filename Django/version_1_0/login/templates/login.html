@@ -25,6 +25,12 @@
           <div class="card-body">
             <h5 class="card-title text-center">Log In</h5>
             <form class="form-signin" method="POST" id="login-form">
+              {% for message in messages %}
+              <div class="alert alert-danger">
+              <a class="close" href="#" data-dismiss="alert"></a>
+                {{ message }}
+              </div>
+              {% endfor %}
               {% csrf_token %}
               <div class="form-label-group">
                {{ form.username }}
