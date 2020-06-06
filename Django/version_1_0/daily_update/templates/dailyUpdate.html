@@ -1,99 +1,59 @@
-{% extends "base.html" %}
-{% load static %}
+{% extends "dashboard.html" %}
 {% block title %} Daily Update {% endblock %}
-{% block head %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-<style>
-  .col-sm-10 {
-          background-image: url('{% static "image/119.jpg"%}');
-          height: auto; 
-          background-position: center;
-          background-repeat: no-repeat;
-          background-size: cover;
-        }
-</style>
-{% endblock %}
-
     
-{% block content %}
-    <div class="container-fluid text-center">    
-      <div class="row content">
-        <div class="col-sm-2 sidenav">
-          <h4>John's Blog</h4>
-          <ul class="nav nav-pills nav-stacked">
-            <li class="active"><a href="#section1">Home</a></li>
-            <li><a href="#section2">Friends</a></li>
-            <li><a href="#section3">Family</a></li>
-            <li><a href="#section3">Photos</a></li>
-          </ul><br>
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search Blog..">
-            <span class="input-group-btn">
-              <button class="btn btn-default" type="button">
-                <span class="glyphicon glyphicon-search"></span>
-              </button>
-            </span>
-          </div>
-        </div>
-        <div class="col-sm-10">
-          <div class="container">
-            <div class="col-sm-9 col-md-7 col-lg-10 mx-auto">
-              <div class="card card-signin my-5">
-                <div class="card-body">
-                  <h5 class="card-title text-center">Daily Update</h5>
-                  <form class="form-addsite" method="POST" id="dailyUpdate-form">
-                  {% csrf_token %}
+{% block main-content %}
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-10 mx-auto">
+        <div class="card card-signin my-5">
+          <div class="card-body">
+            <h5 class="card-title text-center">Daily Update</h5>
+            <form class="form-dailyUpdate" method="POST" id="dailyUpdate-form">
+            {% csrf_token %}
 
-                  <div class="row">
-                    <div class="form-label-group col-sm-6">
-                      {% load bootstrap4 %}
-                      {% bootstrap_css %}  
-                      {% bootstrap_javascript jquery='full' %}
-                      {{ form.date }}{{ form.media }} 
-                    </div>
-                    <div class="form-label-group col-sm-6">
-                      {{ form.total_workers }}
-                    </div>
-                  </div>
-                  
-                  <div class="row">
-                    <div class="form-label-group col-sm-6">
-                      {{ form.male_coolie }}
-                    </div>
-  
-                    <div class="form-label-group col-sm-6">
-                      {{ form.female_coolie }}
-                    </div>  
-                  </div>
-
-                  <div class="row">
-                    <div class="form-label-group col-sm-6">
-                      {{ form.mason }}
-                    </div>
-  
-                    <div class="form-label-group col-sm-6">
-                      {{ form.centrinc_fitter }}
-                    </div>
-                  </div>
-
-                  <div class="form-label-group">
-                    <div class="btn-group">
-                    {{ form.materials_purchased }}
-                    </div>
-                  </div>
-
-                  <div class="form-label-group">
-                    {{ form.material_details }}
-                  </div>
-                  <button class="btn btn-lg btn-success btn-block" type="submit">Save</button>
-                </form>
+            <div class="row">
+              <div class="form-label-group col-sm-6">
+                {{ form.date }}
+              </div>
+              <div class="form-label-group col-sm-6">
+                {{ form.total_workers }}
               </div>
             </div>
-          </div>
+            
+            <div class="row">
+              <div class="form-label-group col-sm-6">
+                {{ form.male_coolie }}
+              </div>
+
+              <div class="form-label-group col-sm-6">
+                {{ form.female_coolie }}
+              </div>  
+            </div>
+
+            <div class="row">
+              <div class="form-label-group col-sm-6">
+                {{ form.mason }}
+              </div>
+
+              <div class="form-label-group col-sm-6">
+                {{ form.centrinc_fitter }}
+              </div>
+            </div>
+
+            <div class="form-label-group">
+              <div class="btn-group">
+              {{ form.materials_purchased }}
+              </div>
+            </div>
+
+            <div class="form-label-group">
+              {{ form.material_details }}
+            </div>
+            <button class="btn btn-lg btn-success btn-block" type="submit">Save</button>
+          </form>
         </div>
       </div>
-
     </div>
   </div>
-{% endblock %}
+    
+  {% endblock %}
 

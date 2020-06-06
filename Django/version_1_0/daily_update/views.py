@@ -1,12 +1,15 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import DailyUpdate, Materials
 from .forms import DailyUpdateForm
 from django.views.generic import ListView
 from django_tables2 import SingleTableView
 from .tables import DailyUpdateTable
+from login_page.views import login_
 # Create your views here.
 
 def dailyUpdate_list(request):
+    if not request.user.is_authenticated:
+        return redirect(login_)
     table = DailyUpdateTable(DailyUpdate.objects.all())
 
     return render(request, "table.html", {
@@ -15,7 +18,11 @@ def dailyUpdate_list(request):
     
 
 def dailyUpdate(request):
+    if not request.user.is_authenticated:
+        return redirect(login_)
     form = DailyUpdateForm(request.POST)
+    table = DailyUpdateTable(DailyUpdate.objects.all())
+    table.paginate(page=request.GET.get("page", 1), per_page=10)
     if request.method == 'POST':
         if form.is_valid():
             dailyupdate = DailyUpdate.objects.create(

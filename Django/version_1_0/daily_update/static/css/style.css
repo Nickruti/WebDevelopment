@@ -28,31 +28,9 @@
   height:auto;
 }
 
-.form-addsite {
-  width: 100%;
-}
-
-.form-addsite .btn {
-  font-size: 80%;
-  border-radius: 5rem;
-  letter-spacing: .1rem;
-  font-weight: bold;
-  padding: 1rem;
-  transition: all 0.2s;
-}
-
 .form-label-group {
   position: relative;
   margin-bottom: 1rem;
-}
-
-.row.content {height: 1500px}
-
-.sidenav {
-  padding-top: 20px;
-  background-color: #f1f1f1;
-  height: 100%;
-  position: absolute;
 }
 
 @media screen and (max-width: 600px) {
@@ -61,10 +39,7 @@
     display: block;
     margin-bottom: 20px;
   }
-  .sidenav {
-    height: auto;
-    padding: 15px;
-  }
-  .row.content {height: auto;} 
 }
 
+    
+      

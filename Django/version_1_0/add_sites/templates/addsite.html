@@ -1,30 +1,7 @@
-{% extends "base.html" %}
-{% load static %}             
-    
+{% extends "dashboard.html" %}
 {% block title %} Add Site {% endblock %}
-{% block head %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-<style>
-  body {
-          background-image: url('{% static "image/119.jpg"%}');
-          height: auto; 
-          background-position: center;
-          background-repeat: no-repeat;
-          background-size: cover;
-        }
-</style>
-{% endblock %}
 
-    
-{% block content %}
-<body>
-  <div class="container">
-    {% for message in messages %}
-      <div class="alert alert-success">
-      <a class="close" href="#" data-dismiss="alert">x</a>
-        {{ message }}
-      </div>
-    {% endfor %}
+{% block main-content %}
     <div class="row">
       <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
         <div class="card card-signin my-5">
@@ -45,11 +22,7 @@
             </div>
 
             <div class="form-label-group">
-              <label></label>
-              {% load bootstrap4 %}
-              {% bootstrap_css %}  
-              {% bootstrap_javascript jquery='full' %}
-              {{ form.date }}{{ form.media }} 
+             {{ form.date }}
             </div>
             <button class="btn btn-lg btn-success btn-block text-uppercase" type="submit">Save</button>
           </form>
@@ -57,7 +30,5 @@
       </div>
     </div>
   </div>
-</div>
-</body>
 {% endblock %}
 

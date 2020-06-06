@@ -1,12 +1,15 @@
-from django.shortcuts import render
 from .models import AddSites
 from .forms import AddSitesForm
 from django.contrib import messages
+from daily_update.views import dailyUpdate
+from django.shortcuts import render, redirect
+from login_page.views import login_
 # Create your views here.
 
 def add_sites(request):
+    if not request.user.is_authenticated:
+        return redirect(login_)
     form = AddSitesForm(request.POST)
-    messages.error(request,'Login Successful!')
     if request.method == 'POST':
         if form.is_valid():
             site = AddSites.objects.create(
@@ -17,8 +20,7 @@ def add_sites(request):
             ) 
             site.save()
             form = AddSitesForm()
-
-            return render(request, "addsite.html", {'form':form})
+            return redirect(dailyUpdate)
         else:
             form = AddSitesForm()
 

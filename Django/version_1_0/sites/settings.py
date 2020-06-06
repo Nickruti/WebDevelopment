@@ -37,9 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'bootstrap_datepicker_plus',
     'bootstrap4',
-    'login',
+    'django_tables2',
+    'login_page',
     'add_sites',
     'daily_update'
 ]
@@ -132,6 +132,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    "login/static/css"
+    os.path.join(BASE_DIR, "static"),
+    "sites/static/css"
 ]
 
+LOGIN_REDIRECT_URL = '/dailyUpdate'

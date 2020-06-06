@@ -1,0 +1,99 @@
+{% extends "full_base.html" %}
+{% load static %}
+    
+{% block title %} Dashboard {% endblock %}
+{% block head %}
+<style>
+  .main-panel {
+          background-image: url('{% static "image/119.jpg"%}');
+          height: auto; 
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
+
+  #logout_button {
+    position: absolute;
+    display: inline-block;
+    bottom: 0;
+    left: 15px;
+
+    
+}
+</style>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.sidebar');
+    var instances = M.Sidenav.init(elems, options);
+  });
+
+  $(document).ready(function(){
+    $('.sidebar').sidebar();
+  });
+</script>
+{% endblock %}
+
+{% block content %}  
+  <div class="wrapper">
+    <div class="collapse navbar-collapse justify-content-end">
+    <div class="sidebar" data-color="purple" data-background-color="white" id="slide-out">
+      <div class="logo"><a href=# class="simple-text logo-normal">
+        Nicky Constructions
+      </a></div>
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="{% url 'dailyUpdate' %}">
+              <i class="fa fa-tachometer"></i>
+              <p>Dashboard</p>
+            </a>
+          </li>
+          <li class="navitem">
+            <a class="nav-link" href="{% url 'addsite' %}">
+              <i class="fa fa-building"></i>
+              <p>Add New Site</p>
+            </a>
+          </li>
+          <li class="navitem">
+            <a class="nav-link" href="{% url 'dailyUpdate' %}">
+              <i class="fa fa-calendar-check-o"></i>
+              <p>Daily Update</p>
+            </a>
+          </li>
+          <li class="navitem">
+            <a class="nav-link" href="{% url 'dailyUpdateTable' %}">
+              <i class="fa fa-book"></i>
+              <p>View Site Details</p>
+            </a>
+          </li>
+        </ul>
+        <ul class="nav" id="logout-button">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'logout' %}">
+              <i class="fa fa-sign-out "></i>
+              <p>Logout</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    </div>
+    <div class="main-panel">
+      <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+        <div class="container-fluid">
+          <div class="navbar-wrapper">
+            <a class="navbar-brand" href="javascript:;">Dashboard</a>
+          </div>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation" data-target="slide-out">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+          </button>
+        </nav>
+    {% block main-content %}
+    {% endblock %}
+    </div>
+  </div>
+{% endblock %}
+    
